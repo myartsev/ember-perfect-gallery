@@ -4,3 +4,6 @@ TODO: https://github.com/ember-cli/ember-cli.github.io/issues/144
 
 Install dependencies:  
 `npm install perfect-layout --save`
+
+Create a component:  
+`ember g component ember-perfect-gallery`
