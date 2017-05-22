@@ -29,3 +29,19 @@ TODO: what does this mean?
 Addon templates were detected, but there are no template compilers registered for `ember-perfect-gallery`. Please make sure your template precompiler (commonly `ember-cli-htmlbars`) is listed in `dependencies` (NOT `devDependencies`) in `ember-perfect-gallery`'s `package.json`.
 
 ```
+
+Try again:  
+`ember install https://github.com/myartsev/ember-perfect-gallery.git
+`  
+`ember s`
+
+It runs! Let's try to see if we can use the addon to see our placeholder text from earlier.  
+*application.hbs*  
+```
+<div>Hello from Ember!</div>
+{{ember-perfect-gallery}}
+{{outlet}}
+```
+
+It works!  
+![](1.png)
