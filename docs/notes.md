@@ -21,7 +21,7 @@ WARNING: Could not figure out blueprint name from: "https://github.com/myartsev/
 Installed addon package.
 ```
 
-Serve the newly generated project:
+### Serve the newly generated project
 `ember s`
 
 TODO: what does this mean?
@@ -30,13 +30,13 @@ Addon templates were detected, but there are no template compilers registered fo
 
 ```
 
-Try again:  
+### Try again
 `ember install https://github.com/myartsev/ember-perfect-gallery.git
 `  
 `ember s`
 
 It runs! Let's try to see if we can use the addon to see our placeholder text from earlier.  
-*application.hbs*  
+**application.hbs**  
 ```
 <div>Hello from Ember!</div>
 {{ember-perfect-gallery}}
@@ -45,3 +45,24 @@ It runs! Let's try to see if we can use the addon to see our placeholder text fr
 
 It works!  
 ![](1.png)
+
+### Let's try adding some interactivity.  
+**ember-perfect-gallery.hbs**
+```
+Hello from ember-perfect-gallery!
+<button {{action 'doSomething'}}>Do something</button>
+```  
+
+**ember-perfect-gallery.js**
+```
+import Ember from 'ember';
+export { default } from 'ember-perfect-gallery/components/ember-perfect-gallery';
+
+export default Ember.Component.extend({
+  actions: {
+    doSomething: () => {
+      console.log('something');
+    }
+  }
+});
+```  
