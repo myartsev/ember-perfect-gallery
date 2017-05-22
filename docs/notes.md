@@ -1,59 +1,64 @@
-Create the add-on package:  
-TODO: https://github.com/ember-cli/ember-cli.github.io/issues/144  
+Create the add-on package:<br>
+TODO: <https://github.com/ember-cli/ember-cli.github.io/issues/144><br>
 `sudo ember addon perfect-gallery`
 
-Install dependencies:  
+Install dependencies:<br>
 `npm install perfect-layout --save`
 
-Create a component:  
+Create a component:<br>
 `ember g component ember-perfect-gallery`
 
 Add some text to the template and test if we can import the addon to an existing ember app.
 
-`ember new foo && cd foo`  
-`ember install https://github.com/myartsev/ember-perfect-gallery.git
-`  
+`ember new foo && cd foo`<br>
+`ember install https://github.com/myartsev/ember-perfect-gallery.git`
 
 TODO: what does this mean?
+
 ```
 NPM: Installed https://github.com/myartsev/ember-perfect-gallery.git
 WARNING: Could not figure out blueprint name from: "https://github.com/myartsev/ember-perfect-gallery.git". Please install the addon blueprint via "ember generate <addon-name>" if necessary.
 Installed addon package.
 ```
 
-### Serve the newly generated project
+# Serve the newly generated project
+
 `ember s`
 
 TODO: what does this mean?
+
 ```
 Addon templates were detected, but there are no template compilers registered for `ember-perfect-gallery`. Please make sure your template precompiler (commonly `ember-cli-htmlbars`) is listed in `dependencies` (NOT `devDependencies`) in `ember-perfect-gallery`'s `package.json`.
-
 ```
 
-### Try again
-`ember install https://github.com/myartsev/ember-perfect-gallery.git
-`  
+# Try again
+
+`ember install https://github.com/myartsev/ember-perfect-gallery.git`<br>
 `ember s`
 
-It runs! Let's try to see if we can use the addon to see our placeholder text from earlier.  
-**application.hbs**  
+It runs! Let's try to see if we can use the addon to see our placeholder text from earlier.<br>
+**application.hbs**
+
 ```
 <div>Hello from Ember!</div>
 {{ember-perfect-gallery}}
 {{outlet}}
 ```
 
-It works!  
+It works!<br>
 ![](1.png)
 
-### Let's try adding some interactivity.  
+# Let's try adding some interactivity.
+
 **ember-perfect-gallery.hbs**
+
 ```
 Hello from ember-perfect-gallery!
 <button {{action 'doSomething'}}>Do something</button>
-```  
+```
 
 **ember-perfect-gallery.js**
+
 ```
 import Ember from 'ember';
 export { default } from 'ember-perfect-gallery/components/ember-perfect-gallery';
@@ -65,15 +70,14 @@ export default Ember.Component.extend({
     }
   }
 });
-```  
+```
 
-Give it a try in the Ember app:  
-`ember install https://github.com/myartsev/ember-perfect-gallery.git
-`
-Stop and restart the Ember server:  
+Give it a try in the Ember app:<br>
+`ember install https://github.com/myartsev/ember-perfect-gallery.git` Stop and restart the Ember server:<br>
 `ember s`
 
 Nope...
+
 ```
 Build error
 
@@ -111,8 +115,38 @@ The broccoli plugin was instantiated at:
 
 Wait a minute, I can do this from the addon itself instead of having to push to GIT and test in a different Ember project. Just use the dummy app in the addon!
 
-Turns out that there are two components in the addon hierarcy, not sure why yet. But now the JS action is working when the code is moved to *addon/components*  
-![](2.png)  
-**TODO: ** what's up with the deprecation warning?   
+Turns out that there are two components in the addon hierarcy, not sure why yet. But now the JS action is working when the code is moved to _addon/components_<br>
+![](2.png)<br>
+**TODO:** what's up with the deprecation warning?
 
-Cool, now it works in the dummy app. Let's try with our *foo* Ember app to make sure.
+Cool, now it works in the dummy app. Let's try with our _foo_ Ember app to make sure.<br>
+`ember install https://github.com/myartsev/ember-perfect-gallery.git && ember s`<br>
+All good!
+
+# Let's try adding some styles
+
+There doesn't appear to be a generator for adding styles.<br>
+`mkdir addon/styles`
+
+Create an app.css file here:
+
+```
+#counter {
+  color: blue;
+}
+```
+
+This must be added manually to be part of the addon.<br>
+**index.js**
+
+```
+module.exports = {
+  name: 'ember-perfect-gallery',
+
+  included: function(app) {
+    app.import('addon/styles/app.css');
+  }
+};
+```
+
+It works on the dummy test app, let's try it with our Ember test app.
