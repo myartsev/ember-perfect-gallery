@@ -117,7 +117,8 @@ Wait a minute, I can do this from the addon itself instead of having to push to 
 
 Turns out that there are two components in the addon hierarcy, not sure why yet. But now the JS action is working when the code is moved to _addon/components_<br>
 ![](2.png)<br>
-**TODO:** what's up with the deprecation warning?
+**TODO:** what's up with the deprecation warning?<br>
+**TODO:** why are there two component JS files? Is it because of the ember g command we ran earlier? ![](4.png)
 
 Cool, now it works in the dummy app. Let's try with our _foo_ Ember app to make sure.<br>
 `ember install https://github.com/myartsev/ember-perfect-gallery.git && ember s`<br>
@@ -149,4 +150,4 @@ module.exports = {
 };
 ```
 
-It works on the dummy test app, let's try it with our Ember test app.
+It works on the dummy test app, let's try it with our Ember test app. It works too! ![](3.png)
