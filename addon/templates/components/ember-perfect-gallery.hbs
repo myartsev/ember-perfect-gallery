@@ -1,3 +1,6 @@
-<div>Hello from ember-perfect-gallery!</div>
-<button {{action 'doSomething'}}>Do something</button>
-<div id="counter">{{counter}}</div>
+<div id="gallery">
+  {{#each photos as |photo|}}
+    <a class="image" href="{{photo.src}}">
+    </a>
+  {{/each}}
+</div>

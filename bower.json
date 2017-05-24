@@ -1,0 +1,24 @@
+{
+  "name": "ember-perfect-gallery",
+  "description": "The default blueprint for ember-cli addons.",
+  "main": "index.js",
+  "authors": [
+    "Michael Yartsev <anijap@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "ember-addon"
+  ],
+  "homepage": "https://github.com/myartsev/ember-perfect-gallery",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "perfect-layout": "^1.1.1"
+  }
+}

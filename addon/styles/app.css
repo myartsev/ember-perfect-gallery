@@ -1,3 +1,10 @@
-#counter {
-  color: blue;
+#gallery {
+  padding: 6px;
+  overflow: hidden;
+}
+
+#gallery .image {
+  position: relative;
+  float: left;
+  margin: 2px;
 }
