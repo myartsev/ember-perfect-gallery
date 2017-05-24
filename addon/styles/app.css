@@ -1,9 +1,9 @@
-#gallery {
+#ember-perfect-gallery {
   padding: 6px;
   overflow: hidden;
 }
 
-#gallery .image {
+#ember-perfect-gallery .ember-perfect-gallery-image {
   position: relative;
   float: left;
   margin: 2px;

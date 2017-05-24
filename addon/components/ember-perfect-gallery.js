@@ -7,17 +7,18 @@ export default Ember.Component.extend({
   didInsertElement() {
     this._super(...arguments);
 
-    this.perfectLayout(document.getElementById('gallery'), this.get('photos'));
+    var containerElement = document.getElementById('ember-perfect-gallery');
+    this.perfectLayout(containerElement, this.get('photos'));
 
     this.get('resizeService').on('didResize', event => {
       var numOfPhotos = this.get('photos').length;
       for (var i = 0; i < numOfPhotos; i++) {
-        var photoElement = document.getElementsByClassName('image')[i];
+        var photoElement = document.getElementsByClassName('ember-perfect-gallery-image')[i];
         photoElement.style.width = `0px`;
         photoElement.style.height = `0px`;
       }
 
-      this.perfectLayout(document.getElementById('gallery'), this.get('photos'));
+      this.perfectLayout(containerElement, this.get('photos'));
     });
   },
 
@@ -36,7 +37,7 @@ export default Ember.Component.extend({
     var photoIndex = 0;
     perfectRows.forEach(function(row) {
       row.forEach(function(img) {
-        var photoElement = document.getElementsByClassName('image')[photoIndex++];
+        var photoElement = document.getElementsByClassName('ember-perfect-gallery-image')[photoIndex++];
         photoElement.style.width = `${img.width}px`;
         photoElement.style.height = `${img.height}px`;
         photoElement.style.background = `url('${img.src}')`;
