@@ -27,7 +27,7 @@ export default Ember.Component.extend({
     // It was found through experimentation to work well at this vaue.
     // perfect-layout computes the sizes well, but there's something in the DOM sizing (no extra padding/margins added)
     // itself that ends up increasing the width and wrapping elements around.
-    // TODO: needs investigation, I don't like magic numbers.
+    // TODO: https://github.com/myartsev/ember-perfect-gallery/issues/2: needs investigation, I don't like magic numbers.
     var width = $(node).width() - 20;
     const perfectRows = perfectLayout(photos, width, $(window).height(), {
       margin: 2
