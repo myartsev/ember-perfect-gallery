@@ -3,6 +3,10 @@ import layout from '../templates/components/ember-perfect-gallery';
 
 export default Ember.Component.extend({
   layout,
+  photos: [],
+
+  // https://github.com/mike-north/ember-resize/issues/43
+  resizeService: Ember.inject.service('resize'),
 
   didInsertElement() {
     this._super(...arguments);
@@ -10,7 +14,7 @@ export default Ember.Component.extend({
     var containerElement = document.getElementById('ember-perfect-gallery');
     this.perfectLayout(containerElement, this.get('photos'));
 
-    this.get('resizeService').on('didResize', event => {
+    this.get('resizeService').on('didResize', () => {
       var numOfPhotos = this.get('photos').length;
       for (var i = 0; i < numOfPhotos; i++) {
         var photoElement = document.getElementsByClassName('ember-perfect-gallery-image')[i];
