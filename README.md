@@ -4,8 +4,11 @@ Beautifully positions a set of images in a responsive gallery.
 
 Inspired by [perfect-layout](https://medium.com/swlh/in-search-of-the-perfect-image-gallery-34f46f7615a1) & [chromatic.io](www.chromatic.io).
 
-![](docs/dummy_full_screen.png)
-![](docs/dummy_resized.png)
+### Full screen
+![](docs/dummy_full_screen.jpg)
+
+### Resized
+![](docs/dummy_resized.jpg)
 
 ## Usage
 
