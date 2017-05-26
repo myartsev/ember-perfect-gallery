@@ -209,5 +209,13 @@ Instead of pushing to GitHub (or other repo) and re-running `ember install https
 
 * In the add-on directory, run `npm link`  
 This will make the addon accessible locally
-* In the app directory that wishes to use this addon, run `npm link <addon-name`, in our case `npm link ember-perfect-gallery`  
-`ember g ember-perfect-gallery` also needs to be run in the app directory to execute the default blueprint. This would not be necessary if the addon is published to npm.
+* In the app directory that wishes to use this addon, run `npm link <addon-name`, in our case `npm link ember-perfect-gallery`.  
+Add the linked npm project manually to the app's package.json:
+```
+...
+"dependencies": {
+  "ember-perfect-gallery": "*"
+},
+...
+```  
+Finally, `ember g ember-perfect-gallery` needs to be run in the app directory to execute the default blueprint. This would not be necessary if the addon is "officially" published to npm.
