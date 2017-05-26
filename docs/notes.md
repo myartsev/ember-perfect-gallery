@@ -151,14 +151,16 @@ module.exports = {
 ```
 
 It works on the dummy test app, let's try it with our Ember test app. It works too! ![](3.png)<br>
-**TODO:** CSS for addons is not documented too well in ember-cli, and not appears that there is no standarized way on how it should be done: https://github.com/ember-cli/ember-cli/issues/2940, https://github.com/ember-cli/ember-cli/issues/1853
+**TODO:** CSS for addons is not documented too well in ember-cli, and not appears that there is no standarized way on how it should be done: <https://github.com/ember-cli/ember-cli/issues/2940>, <https://github.com/ember-cli/ember-cli/issues/1853>
 
 # Adding a bower dependency
-Generate a default blueprint  
-`ember g blueprint ember-perfect-gallery`  
 
-Add the bower dependency.  
-**blueprints/ember-perfect-gallery/index.js**  
+Generate a default blueprint<br>
+`ember g blueprint ember-perfect-gallery`
+
+Add the bower dependency.<br>
+**blueprints/ember-perfect-gallery/index.js**
+
 ```
 /* eslint-env node */
 module.exports = {
@@ -177,4 +179,25 @@ module.exports = {
 };
 ```
 
-Now this dependency will be installed along with the addon when used in a separate Ember project
+Now this dependency will be installed along with the addon when used in a separate Ember project.<br>
+Hah! Not so fast there. It still does not work. After much searching, [I stumbled upon this article](http://emberup.co/ember-addon-secrets/), and the missing piece turned out to be _normalizeEntityName_.<br>
+**TODO:** [why is this necessary?](https://stackoverflow.com/questions/44204540/why-does-an-ember-addon-using-a-bower-dependency-needs-to-override-normalizeenti)
+
+```
+/* eslint-env node */
+module.exports = {
+  description: '',
+  normalizeEntityName: function() {},
+
+  // locals: function(options) {
+  //   // Return custom template variables here.
+  //   return {
+  //     foo: options.entity.options.foo
+  //   };
+  // }
+
+  afterInstall: function(options) {
+    return this.addBowerPackageToProject('perfect-layout');
+  }
+};
+```
