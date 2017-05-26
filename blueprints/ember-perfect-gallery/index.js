@@ -11,6 +11,9 @@ module.exports = {
   // }
 
   afterInstall: function(options) {
-    return this.addBowerPackageToProject('perfect-layout');
+
+    return this.addBowerPackageToProject('perfect-layout').then(() => {
+      return this.addPackageToProject('ember-resize');
+    });
   }
 };

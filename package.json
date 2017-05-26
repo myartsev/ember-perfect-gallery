@@ -20,7 +20,7 @@
   "dependencies": {
     "ember-cli-babel": "^6.0.0",
     "ember-cli-htmlbars": "^1.1.1",
-    "perfect-layout": "^1.2.1"
+    "ember-resize": "0.0.17"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -37,7 +37,6 @@
     "ember-disable-prototype-extensions": "^1.1.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
-    "ember-resize": "0.0.17",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.13.0",
     "ember-welcome-page": "^3.0.0",

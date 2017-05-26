@@ -201,3 +201,13 @@ module.exports = {
   }
 };
 ```
+
+Note that since we are working with an "official" npm addon, we need to manually run `ember g ember-perfect-gallery` in our ember app so that the default blueprint executes.
+
+# Linking to the addon while developing
+Instead of pushing to GitHub (or other repo) and re-running `ember install https://github.com/myartsev/ember-perfect-gallery.git` every time you make a change and want to test it, you can use npm linking to do all this on your local machine:
+
+* In the add-on directory, run `npm link`  
+This will make the addon accessible locally
+* In the app directory that wishes to use this addon, run `npm link <addon-name`, in our case `npm link ember-perfect-gallery`  
+`ember g ember-perfect-gallery` also needs to be run in the app directory to execute the default blueprint. This would not be necessary if the addon is published to npm.
