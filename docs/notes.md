@@ -1,6 +1,6 @@
 Create the add-on package:<br>
 TODO: <https://github.com/ember-cli/ember-cli.github.io/issues/144><br>
-`sudo ember addon perfect-gallery`
+`sudo ember addon ember-perfect-gallery`
 
 Install dependencies:<br>
 `npm install perfect-layout --save`
