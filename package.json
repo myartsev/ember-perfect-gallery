@@ -1,6 +1,6 @@
 {
   "name": "ember-perfect-gallery",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Beautifully positions a set of images in a responsive gallery",
   "keywords": [
     "ember-addon"
