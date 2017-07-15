@@ -219,3 +219,11 @@ Add the linked npm project manually to the app's package.json:
 ...
 ```  
 Finally, `ember g ember-perfect-gallery` needs to be run in the app directory to execute the default blueprint. This would not be necessary if the addon is "officially" published to npm.
+
+# Publish add-on
+```
+npm version 0.0.1
+git push origin master
+git push origin --tags
+npm publish
+```
