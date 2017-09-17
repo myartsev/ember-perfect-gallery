@@ -35,13 +35,16 @@
     "ember-cli-shims": "^1.1.0",
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-data": "^2.15.0",
     "ember-disable-prototype-extensions": "^1.1.2",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.15.0",
     "ember-welcome-page": "^3.0.0",
-    "loader.js": "^4.2.3"
+    "glob": "^4.5.3",
+    "loader.js": "^4.2.3",
+    "morgan": "^1.8.2"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

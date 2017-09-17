@@ -4,12 +4,26 @@ import layout from '../templates/components/ember-perfect-gallery';
 export default Ember.Component.extend({
   layout,
   photos: [],
+  photosChanged: Ember.observer('photos', function() {
+    var scrollX = window.scrollX,
+      scrollY = window.scrollY;
+
+    Ember.run.schedule('afterRender', () => {
+      var containerElement = document.getElementById('ember-perfect-gallery');
+      this.perfectLayout(containerElement, this.get('photos'));
+
+      Ember.run.schedule('afterRender', () => {
+        window.scrollTo(scrollX, scrollY);
+      });
+    });
+  }),
 
   // https://github.com/mike-north/ember-resize/issues/43
   resizeService: Ember.inject.service('resize'),
 
   didInsertElement() {
     this._super(...arguments);
+    this.get('photosChanged');
 
     var containerElement = document.getElementById('ember-perfect-gallery');
     this.perfectLayout(containerElement, this.get('photos'));
