@@ -5,21 +5,28 @@ Beautifully positions a set of images in a responsive gallery.
 Inspired by [perfect-layout](https://medium.com/swlh/in-search-of-the-perfect-image-gallery-34f46f7615a1) & [chromatic.io](http://www.chromatic.io/).
 
 ### Full screen
-![](docs/dummy_full_screen.jpg)
+![](https://i.imgur.com/Sfcr3wO.jpg)
 
 ### Resized
-![](docs/dummy_resized.jpg)
+![](https://imgur.com/cNlgxLs.jpg)
 
 ## Usage
 
 `{{ember-perfect-gallery photos=model}}`
 
-where photos is a JSON array of images with a _src_ and _ratio_ properties:
+where photos is a JSON array consisting of:  
+**Required properties**:
+* _src_:  Where the image is located
+* _ratio_:  (image width / image height). Necessary for computing image element positions.
+
+**Optional properties**:
+* _href_: If present, this will be used as the link associated with this image
 
 ```
 [{
   "src": "path/to/images/1.jpg",
   "ratio": 0.95907928388,
+  "href": "https://github.com/myartsev/ember-perfect-gallery"
 }, {
   "src": "path/to/images/2.jpg",
   "ratio": 1.49925037481,

@@ -13,7 +13,8 @@ export default Ember.Controller.extend({
     this.get('model').forEach((photo) => {
       ret.push({
         src: photo.data.src,
-        ratio: photo.data.ratio
+        ratio: photo.data.ratio,
+        href: photo.data.href
       });
     });
 

@@ -13,6 +13,7 @@
 const photoSeedData = [{
   "src": "assets/images/1.jpg",
   "ratio": 0.95907928388,
+  "href": "https://github.com/myartsev/ember-perfect-gallery"
 }, {
   "src": "assets/images/2.jpg",
   "ratio": 1.49925037481,
@@ -87,7 +88,8 @@ module.exports = function(app) {
       id: photoData.length,
       attributes: {
         src: photoSeedData[index].src,
-        ratio: photoSeedData[index].ratio
+        ratio: photoSeedData[index].ratio,
+        href: photoSeedData[index].href
       }
     });
 
@@ -110,7 +112,8 @@ function initPhotoData() {
       id: photoData.length,
       attributes: {
         src: photoSeed.src,
-        ratio: photoSeed.ratio
+        ratio: photoSeed.ratio,
+        href: photoSeed.href
       }
     });
   });

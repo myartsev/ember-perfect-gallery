@@ -2,5 +2,6 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   src: DS.attr('string'),
-  ratio: DS.attr('number')
+  ratio: DS.attr('number'),
+  href: DS.attr('string')
 });
