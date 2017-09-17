@@ -54,13 +54,21 @@ export default Ember.Component.extend({
 
     var photoIndex = 0;
     perfectRows.forEach(function(row) {
-      row.forEach(function(img) {
+      if(!row.forEach) {
+        setImageStyles(row);
+      } else {
+        row.forEach(function(img) {
+          setImageStyles(img);
+        });
+      }
+
+      function setImageStyles(img) {
         var photoElement = document.getElementsByClassName('ember-perfect-gallery-image')[photoIndex++];
         photoElement.style.width = `${img.width}px`;
         photoElement.style.height = `${img.height}px`;
         photoElement.style.background = `url('${img.src}')`;
         photoElement.style['background-size'] = 'cover';
-      });
+      };
     });
   },
 });
